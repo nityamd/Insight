@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+  "name": "Child's Play",
+  "version": "0.0.1",
+  "description": "",
+  "content_scripts": [{
+      "js": ["content.js"],
+      "icons" : "icon_128.png",
+      "matches": ["https://www.youtube.com/*"],
+      "permissions": ["<all_urls>"],
+      "tabs" : "*"
+  }]
+
+}
