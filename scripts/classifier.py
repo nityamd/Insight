@@ -29,15 +29,12 @@ def ttsplit(thing):
                                                                 indices,
                                                                 test_size=0.2,
                                                                 random_state=40)
-    return x_train,x_test, y_train, y_test, i1, i2
-
-#1: train; 2: test;
+    return x_train, x_test, y_train, y_test, i1, i2
 
 x1_ti, x2_ti, y1_ti, y2_ti, i1, i2 = ttsplit('title')
 x1_des, x2_des, y1_des, y2_des, i1, i2 = ttsplit('description')
-
 clf_tfidf = LogisticRegression(C=30.0, class_weight='balanced', solver='newton-cg',
                          multi_class='multinomial', n_jobs=-1, random_state=40)
-clf_tfidf.fit(X_train_tfidf, y_train)
 
+clf_tfidf.fit(X_train_tfidf, y_train)
 y_predicted_tfidf = clf_tfidf.predict(X_test_tfidf)
