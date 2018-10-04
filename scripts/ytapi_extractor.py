@@ -29,4 +29,6 @@ def videoId_data(video_id):
                                            part='snippet').execute()
     title = video_response.get('items')[0]['snippet']['title']
     description = video_response.get('items')[0]['snippet']['description']
-    return title, description
+    ydict = {'title':title, 'description':description}
+    df = pd.DataFrame(ydict, index = [0])
+    return df
