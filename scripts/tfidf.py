@@ -25,11 +25,6 @@ os.chdir("/Users/nitya/childsplay/data")
 df = pd.read_csv('peppa_dataframe_with_labels')
 df = df.drop_duplicates('videoId')
 
-# tokenizer = RegexpTokenizer(r'\w+')
-# df["des_tokens"] =df["description"].apply(tokenizer.tokenize)
-# df["ti_tokens"] = df["title"].apply(tokenizer.tokenize)
-
-
 def ttsplit(thing):
     ''''
     Train-test splitting with indices

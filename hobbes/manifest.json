@@ -1,14 +1,20 @@
 {
   "manifest_version": 2,
-  "name": "Child's Play",
-  "version": "0.0.1",
-  "description": "",
-  "content_scripts": [{
-      "js": ["content.js"],
-      "icons" : "icon_128.png",
-      "matches": ["https://www.youtube.com/*"],
-      "permissions": ["<all_urls>"],
-      "tabs" : "*"
-  }]
 
+  "name": "Hobbes",
+  "description": "Execute script after click in popup.html (chrome extension)",
+  "version": "1.0",
+
+  "icons": {
+    "48": "icon_hobbes.png"
+  },
+
+  "permissions": [
+    "tabs", "<all_urls>"
+  ],
+
+  "browser_action": {
+    "default_icon": "icon_hobbes.png",
+    "default_popup": "popup.html"
+  }
 }

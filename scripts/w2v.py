@@ -45,8 +45,8 @@ def get_average_word2vec(tokens_list, vector, generate_missing=False, k=300):
     averaged = np.divide(summed, length)
     return averaged
 
-def get_word2vec_embeddings(vectors, clean_questions, generate_missing=False):
-    embeddings = clean_questions['tokens'].apply(lambda x: get_average_word2vec
+def get_word2vec_embeddings(vectors, data, generate_missing=False):
+    embeddings = data['tokens'].apply(lambda x: get_average_word2vec
                                                  (x, vectors, generate_missing=
                                                   generate_missing))
     return list(embeddings)
@@ -55,9 +55,9 @@ def get_word2vec_embeddings(vectors, clean_questions, generate_missing=False):
 embeddings = get_word2vec_embeddings(word2vec, df)
 
 def ttsplit(thing):
-    ''''
+    '''
     Train-test splitting with indices
-    ''''
+    '''
     list_corpus = df[str(thing)].tolist()
     list_labels = df['class_label'].tolist()
     indices = np.arange(len(list_labels))
@@ -72,16 +72,6 @@ x1_ti, x2_ti, y1_ti, y2_ti, i1, i2 = ttsplit('title')
 x1_des, x2_des, y1_des, y2_des, i1, i2 = ttsplit('description')
 
 
-
-def tfidf(data):
-    tfidf_vectorizer = TfidfVectorizer()
-
-    train = tfidf_vectorizer.fit_transform(data)
-
-    return train, tfidf_vectorizer
-
-x1ti_tfidf, tfidf_vectorizer = tfidf(x1_ti)
-x2ti_tfidf = tfidf_vectorizer.transform(x2_ti)
 
 clf_tfidf_ti = LogisticRegression(C=30.0, class_weight='balanced', solver='newton-cg',
                          multi_class='multinomial', n_jobs=-1, random_state=40)
