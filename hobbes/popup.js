@@ -5,5 +5,3 @@ function hello() {
     file: 'alert.js'
   });
 }
-
-document.getElementById('clickme').addEventListener('click', hello);

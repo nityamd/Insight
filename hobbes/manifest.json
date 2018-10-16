@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "Hobbes",
-  "description": "Execute script after click in popup.html (chrome extension)",
+  "name": "YouTopia",
+  "description": "Giving kids the Ideal YouTube Experience",
   "version": "1.0",
 
   "icons": {
@@ -10,8 +10,15 @@
   },
 
   "permissions": [
-    "tabs", "<all_urls>"
+    "tabs",
+    "<all_urls>"
   ],
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"]
+    }
+  ]
 
   "browser_action": {
     "default_icon": "icon_hobbes.png",
